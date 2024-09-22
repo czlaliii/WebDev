@@ -4,13 +4,18 @@ import axios from "axios";
 
 const app = express();
 const port = 3000;
-const API_URL = "www.thecocktaildb.com/api/json/v1/1";
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async(req,res) => {
-        res.render("index.ejs", { content: "Waiting for data..." });
+    try {
+        const result = await axios.get("https://thecocktaildb.com/api/json/v1/1/random.php");
+        const randomDrink = result.data.drinks[0];
+        res.render("index.ejs", { cocktail: randomDrink });
+    } catch (error) {
+        res.status(404).send(error.message);
+    }
 });
 
 app.listen(port, () => {
