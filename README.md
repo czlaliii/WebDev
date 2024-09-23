@@ -8,4 +8,4 @@ By every refresh, a random cocktail appears on the main page with its details, r
 
 ### Public API
 
-My local server is connected to a puplic API, which can be found here: https://www.thecocktaildb.com/api.php.
+My local server is connected to a puplic API, which can be found here: [link](https://www.thecocktaildb.com/api.php).
